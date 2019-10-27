@@ -1,6 +1,6 @@
 {
   "name": "reraf",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A super light and simple way to reschedule animation frames",
   "main": "cjs/index.js",
   "scripts": {
@@ -12,7 +12,11 @@
     "min": "uglifyjs index.js -mco min.js",
     "test": "istanbul cover test/index.js"
   },
-  "keywords": ["requestAnimationFrame", "schedule", "cancel"],
+  "keywords": [
+    "requestAnimationFrame",
+    "schedule",
+    "cancel"
+  ],
   "author": "Andrea Giammarchi",
   "license": "ISC",
   "devDependencies": {
