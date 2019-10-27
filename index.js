@@ -9,10 +9,11 @@ var reraf = (function (exports) {
     return function (callback, self, args) {
       cAF(timer);
       if (--force < 0)
-        invoke(force = limit);
+        invoke();
       else
         timer = rAF(invoke);
       function invoke() {
+        force = limit || Infinity;
         timer = 0;
         callback.apply(self, args || []);
       }
