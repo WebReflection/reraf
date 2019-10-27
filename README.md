@@ -1,6 +1,8 @@
 # reraf
 
-A super simple way to reschedule animation frames, compatible with every browser and Node.js through a `setTimeout` and `clearTimeout` fallback.
+[![Build Status](https://travis-ci.com/WebReflection/reraf.svg?branch=master)](https://travis-ci.com/WebReflection/reraf) [![Coverage Status](https://coveralls.io/repos/github/WebReflection/reraf/badge.svg?branch=master)](https://coveralls.io/github/WebReflection/reraf?branch=master)
+
+A super light and simple way to reschedule animation frames, compatible with every browser and Node.js through a `setTimeout` and `clearTimeout` fallback.
 
 ```js
 import reraf from 'reraf';
