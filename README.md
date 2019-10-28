@@ -17,3 +17,5 @@ reschedule(console.log, null, ['first']);
 reschedule(console.log, null, ['second']);
 // will log "second", but never "first"
 ```
+
+The `reschedule(...)` returns a function to be able to `stop()` the scheduled animation frame, in case it's needed.

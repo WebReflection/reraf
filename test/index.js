@@ -19,6 +19,9 @@ reraf(function () {
     });
     reraf(function () {
       console.assert(calls === 0, 'unexpected delay');
+      reraf(function () {
+        console.assert(false, 'this should not have happened');
+      })();
       console.log('OK');
     });
     calls++;
