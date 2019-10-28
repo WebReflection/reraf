@@ -2,10 +2,9 @@
 var cAF = typeof cancelAnimationFrame === 'function' ? cancelAnimationFrame : clearTimeout;
 var rAF = cAF === clearTimeout ? setTimeout : requestAnimationFrame;
 function reraf(limit) {
-  var force = limit || Infinity;
-  var timer = 0;
-  var stop = function () { cAF(timer); };
-  return function (callback, self, args) {
+  var force, timer;
+  reset();
+  return function reschedule(callback, self, args) {
     cAF(timer);
     if (--force < 0)
       invoke();
@@ -13,10 +12,16 @@ function reraf(limit) {
       timer = rAF(invoke);
     return stop;
     function invoke() {
-      force = limit || Infinity;
-      timer = 0;
+      reset();
       callback.apply(self, args || []);
     }
   };
+  function reset() {
+    force = limit || Infinity;
+    timer = 0;
+  }
+  function stop() {
+    cAF(timer);
+  }
 }
 module.exports = reraf;
