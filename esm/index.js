@@ -1,9 +1,9 @@
-var cAF = typeof cancelAnimationFrame === 'function' ? cancelAnimationFrame : clearTimeout;
-var rAF = cAF === clearTimeout ? setTimeout : requestAnimationFrame;
+var compat = typeof cancelAnimationFrame === 'function';
+var cAF = compat ? cancelAnimationFrame : clearTimeout;
+var rAF = compat ? requestAnimationFrame : setTimeout;
 export default function reraf(limit) {
   var force, timer;
-  reset();
-  return function reschedule(callback, self, args) {
+  return reset(), function reschedule(callback, self, args) {
     cAF(timer);
     if (--force < 0)
       invoke();
