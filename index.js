@@ -12,7 +12,11 @@ var reraf = (function (exports) {
         invoke();
       else
         timer = rAF(invoke);
-      return stop;
+      return function stop(flush) {
+        cAF(timer);
+        if (flush && timer)
+          invoke();
+      };
       function invoke() {
         reset();
         callback.apply(self, args || []);
@@ -21,9 +25,6 @@ var reraf = (function (exports) {
     function reset() {
       force = limit || Infinity;
       timer = 0;
-    }
-    function stop() {
-      cAF(timer);
     }
   }
 

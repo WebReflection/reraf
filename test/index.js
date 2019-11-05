@@ -22,7 +22,14 @@ reraf(function () {
       reraf(function () {
         console.assert(false, 'this should not have happened');
       })();
-      console.log('OK');
+      reraf = require('../cjs')();
+      var times = 0;
+      var stop = reraf(function () {
+        console.assert(0 === times++, 'flushed twice should never happen');
+        console.log('OK');
+      });
+      stop(true);
+      stop(true);
     });
     calls++;
   }, self);
