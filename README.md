@@ -21,3 +21,5 @@ reschedule(console.log, null, ['second']);
 The `reschedule(...)` returns a function to be able to `stop()` the scheduled animation frame, in case it's needed.
 
 If a `truthy` value is passed to `stop(truthy)`, the callback will be "flushed" (invoked) if it didn't flush already.
+
+The `stop(...)` function returns a boolean value, indicating the stop actually stopped the execution of the callback, or it didn't, 'cause it happened before.
