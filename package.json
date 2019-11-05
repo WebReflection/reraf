@@ -1,6 +1,6 @@
 {
   "name": "reraf",
-  "version": "0.2.2",
+  "version": "1.0.0",
   "description": "A super light and simple way to reschedule animation frames",
   "main": "cjs/index.js",
   "scripts": {
