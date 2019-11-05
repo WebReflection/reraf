@@ -10,9 +10,11 @@ export default function reraf(limit) {
     else
       timer = rAF(invoke);
     return function stop(flush) {
+      var didStop = !!timer;
       cAF(timer);
-      if (flush && timer)
+      if (didStop && flush)
         invoke();
+      return didStop;
     };
     function invoke() {
       reset();
