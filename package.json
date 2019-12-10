@@ -20,12 +20,12 @@
   "author": "Andrea Giammarchi",
   "license": "ISC",
   "devDependencies": {
-    "ascjs": "^3.1.0",
-    "coveralls": "^3.0.7",
+    "ascjs": "^3.1.2",
+    "coveralls": "^3.0.9",
     "istanbul": "^0.4.5",
-    "rollup": "^1.25.2",
+    "rollup": "^1.27.9",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "uglify-js": "^3.6.4"
+    "uglify-js": "^3.7.2"
   },
   "module": "esm/index.js",
   "unpkg": "min.js"
